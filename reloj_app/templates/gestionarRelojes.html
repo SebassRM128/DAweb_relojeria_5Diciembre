@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+
+<div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+        <h1>Agregar Reloj</h1>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrarReloj/" method="POST">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <input type="text" id="txtid" name="txtid" class="form-control" placeholder="ID del Reloj" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txtmarca" name="txtmarca" class="form-control" placeholder="Marca" maxlength="255" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txtmodelo" name="txtmodelo" class="form-control" placeholder="Modelo" maxlength="255" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="text" id="txtmaterial" name="txtmaterial" class="form-control" placeholder="Material" maxlength="255" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="number" id="numprecio" name="numprecio" class="form-control" placeholder="Precio" required>
+                    </div>
+
+                    <div class="form-group py-3">
+                        <input type="number" id="numaño" name="numaño" class="form-control" placeholder="Año de Lanzamiento" required>
+                    </div>
+
+                    <div class="form-group py-2">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+<div class="col-sm-12 col-md-4 col-lg-4 col-xl-8">
+    <h1>Listado de Relojes</h1>
+    <img src="{% static 'img/relojes.jpg' %}" style="width: 150px;" alt="Ejemplo de imagen">
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Marca</th>
+                    <th scope="col">Modelo</th>
+                    <th scope="col">Material</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Año de Lanzamiento</th>
+                    <th scope="col">-</th>
+                    <th scope="col">-</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reloj in misrelojes %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ reloj.id }}</td>
+                    <td>{{ reloj.marca }}</td>
+                    <td>{{ reloj.modelo }}</td>
+                    <td>{{ reloj.material }}</td>
+                    <td>{{ reloj.precio }}</td>
+                    <td>{{ reloj.anio_de_lanzamiento }}</td>
+                    <td><a href="seleccionarReloj/{{ reloj.id }}" class="btn btn-success">Editar</a></td>
+                    <td><a href="borrarReloj/{{ reloj.id }}" class="btn btn-danger">Borrar</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}
