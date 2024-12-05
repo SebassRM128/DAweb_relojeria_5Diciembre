@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+<div class="row">
+  <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+    <h1>Registrar Reparación</h1>
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'registrarReparacion' %}" method="POST">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="ID de la Reparación" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="date" id="numfecha" name="numfecha" class="form-control" placeholder="Fecha" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="number" id="numid_reloj" name="numid_reloj" class="form-control" placeholder="ID del Reloj" required>
+          </div>
+
+          <div class="form-group py-3">
+            <textarea id="txtdescripcion_problema" name="txtdescripcion_problema" class="form-control" placeholder="Descripción del problema" required></textarea>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="number" id="numcosto_de_reparacion" name="numcosto_de_reparacion" class="form-control" placeholder="Costo de Reparación" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="text" id="txttiempo_de_reparacion" name="txttiempo_de_reparacion" class="form-control" placeholder="Tiempo de Reparación" maxlength="30" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="text" id="txtestado_reparacion" name="txtestado_reparacion" class="form-control" placeholder="Estado de la Reparación" maxlength="255" required>
+          </div>
+
+          <div class="form-group py-2">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+    <h1>Listado de Reparaciones</h1>
+    <img src="{% static 'img/reparaciones.jpg' %}" style="width: 150px;" alt="Ejemplo de imagen">
+
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">ID Reloj</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Tiempo</th>
+            <th scope="col">Estado</th>
+            <th scope="col">-</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for reparacion in misreparaciones %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ reparacion.id }}</td>
+            <td>{{ reparacion.fecha }}</td>
+            <td>{{ reparacion.id_reloj }}</td>
+            <td>{{ reparacion.descripcion_problema }}</td>
+            <td>{{ reparacion.costo_de_reparacion }}</td>
+            <td>{{ reparacion.tiempo_de_reparacion }}</td>
+            <td>{{ reparacion.estado_reparacion }}</td>
+            <td><a href="seleccionarReparacion/{{ reparacion.id }}" class="btn btn-success">Editar</a></td>
+            <td><a href="borrarReparacion/{{ reparacion.id }}" class="btn btn-danger">Borrar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
