@@ -1,14 +1,14 @@
 # DAweb_relojeria_5Diciembre
-- ![image](https://github.com/user-attachments/assets/0c05e1fa-c677-4158-8ea3-856d898097c6)
+-![image](https://github.com/user-attachments/assets/43299b48-a398-4dba-84f7-f6f54170b720)
 
-- ![image](https://github.com/user-attachments/assets/579cf445-ef89-4167-851f-d3109a4062a2)
+-![image](https://github.com/user-attachments/assets/924f4cf1-96ba-4638-bd42-d3dd5c4b4eec)
 
-- ![image](https://github.com/user-attachments/assets/1d3f4486-8077-4847-bf96-1e3d10b67940)
+- ![image](https://github.com/user-attachments/assets/090b453a-7102-448c-a4d0-fc6885db725b)
 
-- ![image](https://github.com/user-attachments/assets/09b52a40-a685-47ff-9328-291873f82e4e)
+- ![image](https://github.com/user-attachments/assets/a84c7ff1-baaa-4e75-88c3-94be093c0c1b)
 
-- ![image](https://github.com/user-attachments/assets/5017f967-3a17-41c0-97e5-fe60d7023544)
+- ![image](https://github.com/user-attachments/assets/4d155b7c-aa36-4f9e-83b8-9233c327b193)
 
-- ![image](https://github.com/user-attachments/assets/e254c7ff-8d1f-4ec7-8151-b012749459f6)
+- ![image](https://github.com/user-attachments/assets/9d906b30-124d-4626-91ec-8eab0bc46e19)
 
-- ![image](https://github.com/user-attachments/assets/2a3556a8-d7c1-46db-8083-2d22bb7469db)
+
