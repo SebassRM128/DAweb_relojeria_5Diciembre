@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block cuerpo %}
+<div class="row justify-content-center">
+
+    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+    <!-- La tarjeta card--><h1>Editar Reparacion</h1>
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'editarReparacion' %}" method="POST">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <input type="text" id="txtid" name="txtid" class="form-control" value="{{ misreparaciones.idreparacion }}" readonly required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="date" id="numfecha" name="numfecha" class="form-control" value="{{ misreparaciones.fecha_recepcion|date:'Y-m-d' }}" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="date" id="datef" name="datef" class="form-control" value="{{ misreparaciones.fecha_entrega|date:'Y-m-d' }}" required>
+          </div>
+
+
+          <div class="form-group py-3">
+            <input type="number" id="numid_reloj" name="numid_reloj" class="form-control" value="{{ misreparaciones.id_reloj }}" required>
+          </div>
+
+          <div class="form-group py-3">
+            <textarea id="txtdescripcion_problema" name="txtdescripcion_problema" class="form-control" required>{{ misreparaciones.descripcion_problema }}</textarea>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="number" id="numcosto_de_reparacion" name="numcosto_de_reparacion" class="form-control" value="{{ misreparaciones.costo_de_reparacion }}" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="text" id="txttiempo_de_reparacion" name="txttiempo_de_reparacion" class="form-control" value="{{ misreparaciones.tiempo_de_reparacion }}" maxlength="30" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="text" id="txtestado_reparacion" name="txtestado_reparacion" class="form-control" value="{{ misreparaciones.estado_reparacion }}" maxlength="255" required>
+          </div>
+
+          <div class="form-group py-3">
+            <textarea id="txtdetalles" name="txtdetalles" class="form-control" required>{{ misreparaciones.detalles }}</textarea>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="number" id="txtide" name="txtide" class="form-control" value="{{ misreparaciones.id_empleado }}" required>
+          </div>
+
+          <div class="form-group py-3">
+            <input type="number" id="txtidc" name="txtidc" class="form-control" value="{{ misreparaciones.id_cliente }}" required>
+          </div>
+
+          <div class="form-group py-2">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
