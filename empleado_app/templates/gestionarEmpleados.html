@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% load static %}
+{% block cuerpo %}
+<div class="row">
+  <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
+    <h1>Registrar Empleado</h1>
+    <div class="card">
+      <div class="card-body">
+        <form action="{% url 'registrarEmpleado' %}" method="POST">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <input type="text" id="txtid" name="txtid" class="form-control" placeholder="ID del Empleado" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="text" id="txtnombre" name="txtnombre" class="form-control" placeholder="Nombre" maxlength="255" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="text" id="txtapellido" name="txtapellido" class="form-control" placeholder="Apellido" maxlength="255" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="text" id="txtcargo" name="txtcargo" class="form-control" placeholder="Cargo" maxlength="255" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="number" id="numtelefono" name="numtelefono" class="form-control" placeholder="Telefono" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="text" id="txtcorreo" name="txtcorreo" class="form-control" placeholder="Correo" maxlength="255" required>
+          </div>
+
+          <div class="form-group ">
+            <input type="number" id="numanios_experiencia" name="numanios_experiencia" class="form-control" placeholder="Años de Experiencia" required>
+          </div>
+
+          <div class="form-group ">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+    <h1>Listado de Empleados</h1>
+    <img src="{% static 'img/empleados.jpg' %}" style="width: 150px;" alt="Ejemplo de imagen">
+    <table class="col-sm-12 col-md-8 col-lg-8 col-xl-8">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Cargo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Años de Experiencia</th>
+            <th scope="col">-</th>
+            <th scope="col">-</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for empleado in misempleados %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ empleado.id }}</td>
+            <td>{{ empleado.nombre }}</td>
+            <td>{{ empleado.apellido }}</td>
+            <td>{{ empleado.cargo }}</td>
+            <td>{{ empleado.telefono }}</td>
+            <td>{{ empleado.correo }}</td>
+            <td>{{ empleado.anios_experiencia }}</td>
+            <td><a href="seleccionarEmpleado/{{ empleado.id }}" class="btn btn-success">Editar</a></td>
+            <td><a href="borrarEmpleado/{{ empleado.id }}" class="btn btn-danger">Borrar</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+</div>
+{% endblock %}
